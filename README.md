@@ -2,7 +2,7 @@
 
 [![GitHub version](https://badge.fury.io/gh/tjkessler%2Fsmiles-autoencoder.svg)](https://badge.fury.io/gh/tjkessler%2Fsmiles-autoencoder)
 [![PyPI version](https://badge.fury.io/py/smiles-autoencoder.svg)](https://badge.fury.io/py/smiles-autoencoder)
-![GitHub License](https://img.shields.io/github/license/tjkessler/smiles-autoencoder)(https://raw.githubusercontent.com/tjkessler/smiles-autoencoder/master/LICENSE.txt)
+![GitHub License](https://img.shields.io/github/license/tjkessler/smiles-autoencoder)
 
 LSTM-based autoencoders for SMILES strings
 
