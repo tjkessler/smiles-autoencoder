@@ -61,3 +61,13 @@ class LSTMAutoencoder(nn.Module):
         x_enc, _ = self.enc(x)
         x_dec, _ = self.dec(x_enc)
         return x_dec
+    
+    def encode(self, x: torch.Tensor) -> torch.Tensor:
+
+        x_enc, _ = self.enc(x)
+        return x_enc
+    
+    def decode(self, x: torch.Tensor) -> torch.Tensor:
+
+        x_dec, _ = self.dec(x)
+        return x_dec
