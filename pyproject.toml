@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "smiles_autoencoder"
-version = "0.0.1"
+version = "0.1.0"
 authors = [
     { name="Travis Kessler", email="travis.j.kessler@gmail.com" },
 ]
