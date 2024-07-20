@@ -6,16 +6,16 @@ from torch.nn import functional as F
 class LSTMEncoder(nn.Module):
 
     def __init__(self, input_size: int, hidden_size: int,
-                 embedding_size: int, num_layers: int = 1):
+                 latent_size: int, num_lstm_layers: int = 1):
 
         super().__init__()
         self.rnn = nn.LSTM(
             input_size=input_size,
             hidden_size=hidden_size,
-            num_layers=num_layers,
+            num_layers=num_lstm_layers,
             batch_first=True
         )
-        self.lin = nn.Linear(hidden_size, embedding_size)
+        self.lin = nn.Linear(hidden_size, latent_size)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
 
@@ -27,13 +27,13 @@ class LSTMEncoder(nn.Module):
 class LSTMDecoder(nn.Module):
 
     def __init__(self, output_size: int, hidden_size: int,
-                 embedding_size: int, num_layers: int = 1):
+                 latent_size: int, num_lstm_layers: int = 1):
 
         super().__init__()
         self.rnn = nn.LSTM(
-            input_size=embedding_size,
+            input_size=latent_size,
             hidden_size=hidden_size,
-            num_layers=num_layers,
+            num_layers=num_lstm_layers,
             batch_first=True
         )
         self.lin = nn.Linear(hidden_size, output_size)
@@ -48,13 +48,13 @@ class LSTMDecoder(nn.Module):
 class LSTMAutoencoder(nn.Module):
 
     def __init__(self, input_size: int, hidden_size: int,
-                 embedding_size: int, num_layers: int = 1):
+                 latent_size: int, num_lstm_layers: int = 1):
 
         super().__init__()
         self.enc = LSTMEncoder(input_size, hidden_size,
-                               embedding_size, num_layers)
+                               latent_size, num_lstm_layers)
         self.dec = LSTMDecoder(input_size, hidden_size,
-                               embedding_size, num_layers)
+                               latent_size, num_lstm_layers)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
 
